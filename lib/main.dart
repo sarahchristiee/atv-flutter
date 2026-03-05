@@ -8,7 +8,7 @@ void main() {
   runApp(const MyApp());
 }
 
-// 🔵 APP PRINCIPAL
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -16,12 +16,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyHomePage(), // ✅ agora correto
+      home: MyHomePage(),
     );
   }
 }
 
-// 🔵 TELA INICIAL COM ANIMAÇÃO
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
@@ -38,14 +38,13 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
 
-    // Logo aparece primeiro
     Future.delayed(const Duration(milliseconds: 300), () {
       setState(() {
         showLogo = true;
       });
     });
 
-    // Botões aparecem depois
+
     Future.delayed(const Duration(milliseconds: 1200), () {
       setState(() {
         showButtons = true;
@@ -62,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
 
-            // 🔥 LOGO ANIMADA
+            
             AnimatedOpacity(
               duration: const Duration(milliseconds: 800),
               opacity: showLogo ? 1 : 0,
@@ -78,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
             const SizedBox(height: 40),
 
-            // 🔥 BOTÕES ANIMADOS
+ 
             AnimatedOpacity(
               duration: const Duration(milliseconds: 800),
               opacity: showButtons ? 1 : 0,
@@ -88,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Column(
                   children: [
 
-                    // BOTÃO LOGIN
+                   
                     buildButton(
                       context,
                       "Login",
@@ -97,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                     const SizedBox(height: 30),
 
-                    // BOTÃO CADASTRO
+                    
                     buildButton(
                       context,
                       "Cadastro",
